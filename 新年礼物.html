@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="present" ontouchstart="ontouchstart">
+        <div class="santa">
+            <div class="santa__hat"></div>
+            <div class="santa__eyes"></div>
+            <div class="santa__beard">
+                <div class="santa__beard--cover"></div>
+            </div>
+            <div class="santa__smile"></div>
+        </div>
+        <div class="present__box">
+            <div class="present__ribbon--vertical"></div>
+            <div class="present__ribbon--horizontal"></div>
+        </div>
+        <div class="present__top">
+            <div class="present__ribbon--vertical"></div>
+            <div class="present__bow"></div>
+        </div>
+    </div>
+</body>
+<style>
+    body{
+        display:-webkit-box;
+        display:-ms-flexbox;
+        display:flex;
+        -webkit-box-align:center;
+        -ms-flex-align:center;
+        align-items:center;
+        -webkit-box-pack:center;
+        -ms-flex-pack:center;
+        justify-content:center;
+        height:100vh;
+        background-color:#1e2f27
+    }
+    .present{
+        -webkit-user-select: none; /*-webkit-user-select:none */
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        position: relative;
+        margin-top: 10vw;
+        width: 30vw;
+        height: 25vw;
+    }
+    /*下面我们写红色的盒子，以及圆角*/
+    .present__box{
+        background-color: #fe4365;
+        background-image: -webkit-repeating-linear-gradient(45deg,#fe2f54,#fe2f54 1px,#fe4365 1px);/*后面有点看不见*/
+        background-image: repeating-linear-gradient(45deg,#fe2f54,#fe2f54 1px,#fe4365 1px,#fe4365 1px);/*后面有点看不见*/
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 0 0 0.5vw 0.5vw;
+        box-shadow: inset -6px -6px 36px rgba(0, 0, 0, 0.1);
+    }
+    /*这是横竖的封条*/
+    .present__ribbon--vertical{
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        width: 5vw;
+        height: 100%;
+        background-color: #f9cdad;
+        background-image: -webkit-linear-gradient(10deg,transparent,rgba(255,255,255,0.4) 70%,transparent);/*后面有点看不见*/
+        background-image: linear-gradient(88deg,transparent,rgba(255,255,255,0.4) 70% transparent);/*后面有点看不见*/
+        box-shadow: inset 0 -4px 6px -2px rgba(0, 0, 0, 0.1),4px 0 6px -2px rgba(0, 0, 0, 0.1);
+    }
+    .present__ribbon--horizontal{
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5vw;
+        background-image: -webkit-linear-gradient(10deg,transparent,rgba(255,255,255,0.6) 60%,transparent);/*后面有点看不见*/
+        background-image: linear-gradient(80deg,transparent,rgba(255,255,255,0.6) 60%,transparent);/*后面有点看不见*/
+        box-shadow: 0 0 8px -2px rgba(0, 0, 0, 0.1);
+    }
+    /*这是礼物盖子*/
+    .present__top{
+        background-color: #fe4365;
+        background-image: -webkit-repeating-linear-gradient(135deg,#fe2f54,#fe2f54 1px,#fe4365 1px,#fe4365 1px);/*后面有点看不见*/
+        background-image: repeating-linear-gradient(-45deg,#fe2f54,#fe2f54 1px,#fe4365 1px,#fe4365 1px);/*后面有点看不见*/
+        position: absolute;
+        top: 0;
+        left: -1%;
+        width: 102%;
+        height: 20%;
+        border-radius: 0.5vw 0.5vw 0 0;
+        box-shadow: inset -6px -6px 36px rgba(0, 0, 0, 0.1);
+    }
+    .present__bow{
+        position: absolute;
+        right: 0;
+        bottom: 100%;
+        left: 0;
+        margin: auto;
+        width: 30%;
+        height: 40%;
+        background-color: #83af9b;
+        border-radius: 2px 2px 0 0;
+        box-shadow: inset -6px -6px 6px rgba(0, 0, 0, 0.1);
+    }
+    /*这是盖子上的蝴蝶结*/
+    .present__bow:before,
+    .present__bow:after{
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        width: 100%;
+        height: 150%;
+        background-color: inherit;
+        border-radius: 2px;
+        z-index: -1;
+    }
+    .present__bow:before{
+        right: 0;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .present__bow:after{
+        right: 0;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-shadow: inset -6px -6px 6px rgba(0, 0, 0, 0.1);
+    }
+    /*开始画礼盒里面的礼物*/
+    .santa{
+        position: absolute;
+        right: 0;
+        bottom: 90%;
+        left: 0;
+        margin: auto;
+        width: 60%;
+        background-color: #e18899;
+        border-radius: 100%;
+    }
+    .santa:after{
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+    .santa__eyes{
+        position: absolute;
+        top: 35%;
+        width: 100%;
+        height: 100%;
+    }
+    .santa__eyes:before,
+    .santa__eyes:after{
+        content: "";
+        position: absolute;
+        width: 1.4vw;
+        height: 1.4vw;
+        background-color: #111111;
+        border-radius: 100%;
+    }
+    .santa__eyes:before{
+        left: 60%;
+    }
+    .santa__eyes:after{
+        right: 60%;
+    }
+    .santa__beard{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        width: 100%;
+        height: 50%;
+        background-color: white;
+        border-radius: 0 0 4vw 4vw;
+    }
+    .santa__beard:before,
+    .santa__beard:after{
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        width: 15%;
+        height: 25%;
+        background-color: inherit;
+    }
+    .santa__beard:before{
+        left: 0;
+        border-radius: 0 4vw 0 0;
+    }
+    .santa__beard:after{
+        right: 0;
+        border-radius: 4vw 0 0 0;
+    }
+    .santa__beard--cover{
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        width: 70%;
+        height: 50%;
+        background-color: #e18899;
+        border-radius: 0 0 2vw 2vw;
+    }
+    .santa__beard--cover:before{
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        width: 50%;
+        height: 100%;
+        background-color: white;
+        border-radius: 1vw 1vw 0 0;
+    }
+    .santa__smile{
+        position: absolute;
+        right: 0;
+        bottom: 30%;
+        left: 0;
+        margin: auto;
+        width: 15%;
+        height: 20%;
+        background-color: #111111;
+        border-radius: 4vw;
+    }
+    .santa__smile:before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background-color: white;
+    }
+    /*开始添加礼物的动画效果*/
+    .present{
+        -webkit-animation: shake 5s ease-in-out infinite;
+        animation: shake 5s ease-in-out infinite;
+    }
+    .present__top{
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-transition: -webkit-transform 0.2s ease-in;
+        transform: -webkit-transform 0.2s ease-in;
+        transition: transform 0.2s ease-in;
+        transition: transform 0.2s ease-in,-webkit-transform 0.2s ease-in;
+    }
+    .santa{
+        -webkit-transform: translateY(17vw);
+        transform: translateY(17vw);
+        -webkit-transition:-webkit-transform 0.2s ease-in;
+        transition: -webkit-transform 0.2s ease-in;
+        transition: transform 0.2s ease-in,-webkit-transform 0.2s ease-in;
+    }
+    .present:hover{
+        -webkit-animation: none;
+        animation: none;
+    }
+    .present:hover .santa{
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        -webkit-transition: -webkit-transform 0.1s ease-out;
+        transition: -webkit-transform 0.1s ease-out;
+        transition: transform 0.1s ease-out;
+        transition: transform 0.1s ease-out,-webkit-transform 0.1s ease-out;
+    }
+    .present:hover .present__top{
+        -webkit-transform: translateY(-17vw);
+        transform: translateY(-17vw);
+        -webkit-animation: pop-the-top 0.4s ease-in;
+        animation: pop-the-top 0.4s ease-in;
+    }
+    @-webkit-keyframes pop-the-pop{
+
+    }
+    @keyframes pop-the-pop{
+
+    }
+    @-webkit-keyframes shake{
+
+    }
+    @keyframes shake{
+
+    }
+</style>
+</html>
